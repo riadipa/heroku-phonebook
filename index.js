@@ -98,18 +98,6 @@ app.post("/api/persons", (request, response) => {
   const body = request.body;
   console.log("body name: ", body.name);
 
-  if (!body.name) {
-    return response.status(400).json({
-      error: "name is not present"
-    });
-  }
-
-  if (!body.number) {
-    return response.status(400).json({
-      error: "number is not present"
-    });
-  }
-
   const person = new Person({
     name: body.name,
     number: body.number
