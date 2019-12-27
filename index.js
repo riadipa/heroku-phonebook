@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
+const cors = require("cors");
 
 app.use(bodyParser.json());
 
@@ -12,6 +13,8 @@ morgan.token("body", function(req, res) {
 app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms :body")
 );
+
+app.use(cors());
 
 app.use(express.static("build"));
 
